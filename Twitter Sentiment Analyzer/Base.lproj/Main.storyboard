@@ -22,6 +22,9 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RjQ-bF-Nuc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentiment Analysis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa7-Qf-YaV">
                                 <rect key="frame" x="87" y="24" width="146" height="21"/>
@@ -57,6 +60,9 @@
                                 <state key="normal" title="Query Tweets">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="queryTweets:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zIN-ZN-1CG"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-qu-gsD">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
@@ -92,6 +98,13 @@
                             <constraint firstItem="X27-JA-fje" firstAttribute="top" secondItem="5E2-KB-lIj" secondAttribute="bottom" constant="8" symbolic="YES" id="yMX-m0-lzT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="sZl-1g-ClU" id="22A-cp-iqQ"/>
+                        <outlet property="approvalLabel" destination="jEn-NE-40K" id="hcc-Wl-o0C"/>
+                        <outlet property="handleLabel" destination="X27-JA-fje" id="6f1-SV-bgm"/>
+                        <outlet property="queryTextField" destination="2U7-Ux-P1B" id="DRi-dV-Q3H"/>
+                        <outlet property="tweetTableView" destination="aQp-qu-gsD" id="Qqz-ic-zTA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
