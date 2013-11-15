@@ -39,6 +39,8 @@
     self.wordScores = [[NSDictionary alloc] initWithContentsOfFile:path];
 }
 
+// Sign the user into twitter. If a twitter profile isn't already stored on a device,
+// Then we must use oAuth via Safari
 - (IBAction)signIn:(id)sender {
     self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
     
@@ -55,11 +57,13 @@
     }];
 }
 
+// Action received by search button
 - (IBAction)search:(id)sender {
     [self queryTweets];
     [self hideKeyboard];
 }
 
+// Sign in using oAuth and Safari
 - (void)signInWithSafari {
     
     self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:CONSUMER_KEY
@@ -80,6 +84,7 @@
                     }];
 }
 
+// Set up tokens in order to interface with Twitter API
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
     
     [self.twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
@@ -94,11 +99,13 @@
     }];
 }
 
+// Query the tweets and determine sentiment
 - (void)queryTweets {
     if (![self.handleLabel.text isEqualToString:@"Logged Out"]) {
         [self.activityIndicator startAnimating];
     }
     
+    // Make the API call
     [self.twitter getSearchTweetsWithQuery:self.queryTextField.text geocode:nil lang:@"en" locale:nil resultType:nil count:@"100" until:nil sinceID:nil maxID:nil includeEntities:nil callback:nil
                         successBlock:^(NSDictionary *Searchmetadata, NSArray *statuses) {
         
@@ -110,11 +117,14 @@
                             
                             [self.tweetTableView reloadData];
                             
+                            // Create an array of all tweets
                             NSMutableArray *tweetsText = [[NSMutableArray alloc] init];
                             for (NSDictionary *status in self.statuses) {
                                 NSString *text = [status valueForKey:@"text"];
                                 [tweetsText addObject:text];
                             }
+                            
+                            // Determine how many show positive sentiment
                             float numPositive = 0;
                             for (NSString *tweet in tweetsText) {
                                 float tweetScore = 0;
@@ -138,6 +148,7 @@
                             self.approvalLabel.hidden = NO;
                             self.approvalLabel.text = [NSString stringWithFormat:@"%0.1f%%", percentage];
                             
+                            // Adjust the color of the label
                             if (percentage < 40) {
                                 self.approvalLabel.textColor = [UIColor redColor];
                             }
