@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STTwitter.h"
 
-@interface SAViewController : UIViewController
+@interface SAViewController : UIViewController <UITableViewDataSource, UITextFieldDelegate>
+
+@property (strong, nonatomic) NSArray *statuses;
+
+- (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier;
 
 @end

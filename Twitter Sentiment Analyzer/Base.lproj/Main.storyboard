@@ -33,37 +33,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X27-JA-fje">
-                                <rect key="frame" x="20" y="58" width="252" height="21"/>
+                                <rect key="frame" x="20" y="58" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="252" id="7mD-eP-GBE"/>
+                                    <constraint firstAttribute="width" constant="280" id="7mD-eP-GBE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sZl-1g-ClU">
-                                <rect key="frame" x="280" y="59" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2U7-Ux-P1B">
-                                <rect key="frame" x="20" y="87" width="179" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Google" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2U7-Ux-P1B">
+                                <rect key="frame" x="20" y="87" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="rDZ-cn-YzX"/>
+                                    <constraint firstAttribute="width" constant="280" id="rDZ-cn-YzX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHA-YR-9Ad">
-                                <rect key="frame" x="207" y="87" width="93" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Query Tweets">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="queryTweets:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zIN-ZN-1CG"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-qu-gsD">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,15 +66,11 @@
                         <constraints>
                             <constraint firstItem="2U7-Ux-P1B" firstAttribute="top" secondItem="X27-JA-fje" secondAttribute="bottom" constant="8" symbolic="YES" id="0IP-gK-a0Z"/>
                             <constraint firstItem="2U7-Ux-P1B" firstAttribute="leading" secondItem="X27-JA-fje" secondAttribute="leading" id="0uA-30-ui4"/>
-                            <constraint firstItem="XHA-YR-9Ad" firstAttribute="leading" secondItem="2U7-Ux-P1B" secondAttribute="trailing" constant="8" symbolic="YES" id="1gu-bX-4vO"/>
                             <constraint firstItem="jEn-NE-40K" firstAttribute="centerX" secondItem="sa7-Qf-YaV" secondAttribute="centerX" id="2XK-05-MNa"/>
-                            <constraint firstItem="sZl-1g-ClU" firstAttribute="bottom" secondItem="X27-JA-fje" secondAttribute="bottom" id="4wp-nB-cxl"/>
                             <constraint firstItem="5E2-KB-lIj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="7a8-bQ-m7b"/>
                             <constraint firstItem="sa7-Qf-YaV" firstAttribute="baseline" secondItem="5E2-KB-lIj" secondAttribute="baseline" id="7r0-7W-alO"/>
-                            <constraint firstItem="sZl-1g-ClU" firstAttribute="leading" secondItem="X27-JA-fje" secondAttribute="trailing" constant="8" symbolic="YES" id="94I-pX-P5B"/>
                             <constraint firstItem="5E2-KB-lIj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="CPC-d4-GeR"/>
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HYB-Le-Uvl"/>
-                            <constraint firstItem="XHA-YR-9Ad" firstAttribute="top" secondItem="X27-JA-fje" secondAttribute="bottom" constant="8" symbolic="YES" id="O2o-Qp-aiO"/>
                             <constraint firstAttribute="bottom" secondItem="aQp-qu-gsD" secondAttribute="bottom" id="TUZ-Mw-rT7"/>
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="top" secondItem="jEn-NE-40K" secondAttribute="bottom" constant="8" id="TuO-Tr-2uo"/>
                             <constraint firstItem="sa7-Qf-YaV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fpv-2H-lba"/>
@@ -99,7 +81,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="sZl-1g-ClU" id="22A-cp-iqQ"/>
                         <outlet property="approvalLabel" destination="jEn-NE-40K" id="hcc-Wl-o0C"/>
                         <outlet property="handleLabel" destination="X27-JA-fje" id="6f1-SV-bgm"/>
                         <outlet property="queryTextField" destination="2U7-Ux-P1B" id="DRi-dV-Q3H"/>
