@@ -42,18 +42,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Google" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2U7-Ux-P1B">
-                                <rect key="frame" x="20" y="87" width="280" height="30"/>
+                                <rect key="frame" x="20" y="87" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="rDZ-cn-YzX"/>
+                                    <constraint firstAttribute="width" constant="224" id="rDZ-cn-YzX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-qu-gsD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-qu-gsD">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="STTwitterTVCellIdentifier" textLabel="No5-Ve-4Hh" detailTextLabel="TiC-12-OAi" rowHeight="89" style="IBUITableViewCellStyleSubtitle" id="gEP-x6-h8A">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gEP-x6-h8A">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" id="No5-Ve-4Hh">
+                                                    <rect key="frame" x="15" y="27" width="30" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TiC-12-OAi">
+                                                    <rect key="frame" x="15" y="46" width="43" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-NE-40K">
                                 <rect key="frame" x="118" y="125" width="84" height="48"/>
@@ -61,6 +87,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-yb-8kE">
+                                <rect key="frame" x="252" y="87" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="search:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dfk-AL-hIW"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JqJ-1V-dAD">
+                                <rect key="frame" x="280" y="59" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,9 +110,13 @@
                             <constraint firstItem="5E2-KB-lIj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="7a8-bQ-m7b"/>
                             <constraint firstItem="sa7-Qf-YaV" firstAttribute="baseline" secondItem="5E2-KB-lIj" secondAttribute="baseline" id="7r0-7W-alO"/>
                             <constraint firstItem="5E2-KB-lIj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="CPC-d4-GeR"/>
+                            <constraint firstItem="GhC-yb-8kE" firstAttribute="top" secondItem="X27-JA-fje" secondAttribute="bottom" constant="8" symbolic="YES" id="Gya-qa-eUH"/>
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="HYB-Le-Uvl"/>
+                            <constraint firstItem="JqJ-1V-dAD" firstAttribute="trailing" secondItem="X27-JA-fje" secondAttribute="trailing" id="SEt-VW-aJe"/>
                             <constraint firstAttribute="bottom" secondItem="aQp-qu-gsD" secondAttribute="bottom" id="TUZ-Mw-rT7"/>
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="top" secondItem="jEn-NE-40K" secondAttribute="bottom" constant="8" id="TuO-Tr-2uo"/>
+                            <constraint firstItem="GhC-yb-8kE" firstAttribute="leading" secondItem="2U7-Ux-P1B" secondAttribute="trailing" constant="8" symbolic="YES" id="cxC-JI-nS9"/>
+                            <constraint firstItem="GhC-yb-8kE" firstAttribute="top" secondItem="JqJ-1V-dAD" secondAttribute="bottom" constant="8" symbolic="YES" id="dbz-WO-KZ6"/>
                             <constraint firstItem="sa7-Qf-YaV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fpv-2H-lba"/>
                             <constraint firstItem="jEn-NE-40K" firstAttribute="top" secondItem="2U7-Ux-P1B" secondAttribute="bottom" constant="8" symbolic="YES" id="gna-cg-TGh"/>
                             <constraint firstItem="X27-JA-fje" firstAttribute="leading" secondItem="5E2-KB-lIj" secondAttribute="leading" id="nVk-Em-a5h"/>
@@ -81,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JqJ-1V-dAD" id="COt-aE-8xr"/>
                         <outlet property="approvalLabel" destination="jEn-NE-40K" id="hcc-Wl-o0C"/>
                         <outlet property="handleLabel" destination="X27-JA-fje" id="6f1-SV-bgm"/>
                         <outlet property="queryTextField" destination="2U7-Ux-P1B" id="DRi-dV-Q3H"/>

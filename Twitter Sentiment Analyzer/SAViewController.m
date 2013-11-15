@@ -14,9 +14,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *approvalLabel;
 @property (strong, nonatomic) IBOutlet UITextField *queryTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tweetTableView;
-//@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (strong, nonatomic) STTwitterAPI *twitter;
+@property (strong, nonatomic) NSDictionary *wordScores;
 
 @property (strong, nonatomic) UITextField *activeField;
 
@@ -28,10 +29,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    self.activityIndicator.hidesWhenStopped = YES;
+    self.activityIndicator.hidesWhenStopped = YES;
     self.approvalLabel.hidden = YES;
     self.tweetTableView.dataSource = self;
     self.queryTextField.delegate = self;
+    
+    // Load the plist
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"scores_list" ofType:@"plist"];
+    self.wordScores = [[NSDictionary alloc] initWithContentsOfFile:path];
 }
 
 - (IBAction)signIn:(id)sender {
@@ -48,6 +53,11 @@
         
         [self signInWithSafari];
     }];
+}
+
+- (IBAction)search:(id)sender {
+    [self queryTweets];
+    [self hideKeyboard];
 }
 
 - (void)signInWithSafari {
@@ -85,6 +95,9 @@
 }
 
 - (void)queryTweets {
+    if (![self.handleLabel.text isEqualToString:@"Logged Out"]) {
+        [self.activityIndicator startAnimating];
+    }
     
     [self.twitter getSearchTweetsWithQuery:self.queryTextField.text geocode:nil lang:@"en" locale:nil resultType:nil count:@"100" until:nil sinceID:nil maxID:nil includeEntities:nil callback:nil
                         successBlock:^(NSDictionary *Searchmetadata, NSArray *statuses) {
@@ -94,17 +107,53 @@
                             NSLog(@"%@",[NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]]);
         
                             self.statuses = statuses;
+                            
+                            [self.tweetTableView reloadData];
+                            
+                            NSMutableArray *tweetsText = [[NSMutableArray alloc] init];
+                            for (NSDictionary *status in self.statuses) {
+                                NSString *text = [status valueForKey:@"text"];
+                                [tweetsText addObject:text];
+                            }
+                            float numPositive = 0;
+                            for (NSString *tweet in tweetsText) {
+                                float tweetScore = 0;
+                                NSArray *tokens = [tweet componentsSeparatedByString:@" "];
+                                for (NSString *key in self.wordScores) {
+                                    for (NSString *token in tokens) {
+                                        if (!([key compare:token options:NSCaseInsensitiveSearch])) {
+//                                            NSLog(@"%@ %@", key, [self.wordScores objectForKey:key]);
+                                            tweetScore += [[self.wordScores objectForKey:key] floatValue];
+                                        }
+                                    }
+                                }
+                                if (tweetScore > 0) {
+                                    numPositive++;
+                                }
+                                else if (tweetScore == 0) {
+                                    numPositive += .5;
+                                }
+                            }
+                            float percentage = (100 * numPositive) / [tweetsText count];
+                            self.approvalLabel.hidden = NO;
+                            self.approvalLabel.text = [NSString stringWithFormat:@"%0.1f%%", percentage];
+                            
+                            if (percentage < 40) {
+                                self.approvalLabel.textColor = [UIColor redColor];
+                            }
+                            else if (percentage < 60) {
+                                self.approvalLabel.textColor = [UIColor darkGrayColor];
+                            }
+                            else {
+                                self.approvalLabel.textColor = [UIColor greenColor];
+                            }
+                            
+                            [self.activityIndicator stopAnimating];
         
                         } errorBlock:^(NSError *error) {
                             NSLog(@"Error: %@", [error localizedDescription]);
+                            [self.activityIndicator stopAnimating];
                         }];
-    NSMutableArray *tweetsText = [[NSMutableArray alloc] init];
-    for (NSDictionary *status in self.statuses) {
-        NSString *text = [status valueForKey:@"text"];
-        [tweetsText addObject:text];
-    }
-    
-    
 }
 
 
@@ -129,7 +178,7 @@
     }
     
     NSDictionary *status = [self.statuses objectAtIndex:indexPath.row];
-    NSLog(@"Status: %@", status);
+//    NSLog(@"Status: %@", status);
     
     NSString *text = [status valueForKey:@"text"];
     NSString *screenName = [status valueForKeyPath:@"user.screen_name"];
@@ -141,6 +190,9 @@
     NSString *imageURL = [[status objectForKey:@"user"] objectForKey:@"profile_image_url"];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
     cell.imageView.image = [UIImage imageWithData:data];
+    
+    cell.textLabel.font=[UIFont systemFontOfSize:14.0];
+    [cell.textLabel setLineBreakMode:NSLineBreakByWordWrapping];
     
     return cell;
 }
