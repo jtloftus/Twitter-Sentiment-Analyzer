@@ -230,6 +230,12 @@
     return YES;
 }
 
+- (IBAction)backgroundTapped:(id)sender {
+    if (self.activeField) {
+        [self.activeField resignFirstResponder];
+    }
+}
+
 - (void)hideKeyboard {
     [self.activeField resignFirstResponder];
 }

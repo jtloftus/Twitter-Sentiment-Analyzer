@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3017" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -58,7 +58,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="STTwitterTVCellIdentifier" textLabel="No5-Ve-4Hh" detailTextLabel="TiC-12-OAi" rowHeight="89" style="IBUITableViewCellStyleSubtitle" id="gEP-x6-h8A">
                                         <rect key="frame" x="0.0" y="22" width="320" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gEP-x6-h8A">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gEP-x6-h8A" id="hbe-58-le5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -103,6 +103,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2U7-Ux-P1B" firstAttribute="top" secondItem="X27-JA-fje" secondAttribute="bottom" constant="8" symbolic="YES" id="0IP-gK-a0Z"/>
                             <constraint firstItem="2U7-Ux-P1B" firstAttribute="leading" secondItem="X27-JA-fje" secondAttribute="leading" id="0uA-30-ui4"/>
@@ -123,6 +124,9 @@
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="centerX" secondItem="sa7-Qf-YaV" secondAttribute="centerX" id="oZj-ID-n57"/>
                             <constraint firstItem="X27-JA-fje" firstAttribute="top" secondItem="5E2-KB-lIj" secondAttribute="bottom" constant="8" symbolic="YES" id="yMX-m0-lzT"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="65p-gg-Z4E" appends="YES" id="Bkv-0E-er7"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="JqJ-1V-dAD" id="COt-aE-8xr"/>
@@ -133,6 +137,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="65p-gg-Z4E">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="vXZ-lx-hvc" id="BQP-S5-YMh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="293" y="100"/>
         </scene>
