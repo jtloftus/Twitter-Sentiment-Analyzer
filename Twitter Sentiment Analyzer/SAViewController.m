@@ -146,7 +146,7 @@
                             }
                             float percentage = (100 * numPositive) / [tweetsText count];
                             self.approvalLabel.hidden = NO;
-                            self.approvalLabel.text = [NSString stringWithFormat:@"%0.1f%%", percentage];
+                            self.approvalLabel.text = [NSString stringWithFormat:@"%0.0f%%", percentage];
                             
                             // Adjust the color of the label
                             if (percentage < 40) {
