@@ -47,10 +47,12 @@
     
     self.handleLabel.text = @"Trying to login with iOS...";
     
+    // First Try Logging in using iOS Credentials
     [self.twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
         
         self.handleLabel.text = username;
         
+    // If that didn't work, try logging in with Safari
     } errorBlock:^(NSError *error) {
         self.handleLabel.text = [error localizedDescription];
         
@@ -232,6 +234,7 @@
     // NSLog(@"Ended Editing");
 }
 
+// Actions to be taken if Return is pressed on the keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     // Hide the keyboard
@@ -242,12 +245,14 @@
     return YES;
 }
 
+// Dismiss the keyboard if the background is tapped
 - (IBAction)backgroundTapped:(id)sender {
     if (self.activeField) {
         [self.activeField resignFirstResponder];
     }
 }
 
+// Helper Method
 - (void)hideKeyboard {
     [self.activeField resignFirstResponder];
 }
