@@ -7,7 +7,7 @@ This repository contains the source code to build a Twitter Sentiment Analyzer i
 soon be available on the App Store. This App has a few main components listed below.
 
 *NOTE*
-  This code was written in conjunction with the repository Twitter-Sentiment-Analyzer-Model-Builder
+  This code was written in conjunction with the repository Twitter-Sentiment-Analyzer-Model-Builder.
   The code used to generate the model used for scoring the tweets was created from the files listed there.
 
 Twitter Sentiment Analyzer
