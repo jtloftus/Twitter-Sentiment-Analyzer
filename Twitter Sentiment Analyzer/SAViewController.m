@@ -222,6 +222,8 @@
     return cell;
 }
 
+#pragma mark UITextFieldDelegate
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.activeField = textField;
