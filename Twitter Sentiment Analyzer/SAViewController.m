@@ -103,7 +103,7 @@
 // Query the tweets and determine sentiment
 - (void)queryTweets {
     if (![self.handleLabel.text isEqualToString:@"Logged Out"]) {
-        [self.activityIndicator startAnimating];
+        [self startActivityIndicators];
     }
     
     // Determine whether we're searching for mixed (popular & random), popular, or random
@@ -171,7 +171,7 @@
                                 self.approvalLabel.textColor = [UIColor greenColor];
                             }
                             
-                            [self.activityIndicator stopAnimating];
+                            [self stopActivityIndicators];
         
                         } errorBlock:^(NSError *error) {
                             NSLog(@"Error: %@", [error localizedDescription]);
@@ -250,6 +250,21 @@
 
 - (void)hideKeyboard {
     [self.activeField resignFirstResponder];
+}
+
+// Activity Indicator Functions
+- (void) startActivityIndicators
+{
+    // Show the activity indicator in the status bar
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    // Show the local activity indicator
+    [self.activityIndicator startAnimating];
+}
+
+- (void) stopActivityIndicators
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.activityIndicator stopAnimating];
 }
 
 @end
