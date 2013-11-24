@@ -75,7 +75,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-NE-40K">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-NE-40K">
                                 <rect key="frame" x="226" y="128" width="74" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -99,7 +99,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lba-9g-PUV">
-                                <rect key="frame" x="20" y="135" width="197" height="29"/>
+                                <rect key="frame" x="20" y="135" width="198" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Mixed"/>
@@ -133,6 +133,7 @@
                             <constraint firstItem="jEn-NE-40K" firstAttribute="trailing" secondItem="GhC-yb-8kE" secondAttribute="trailing" id="n2b-E7-UgY"/>
                             <constraint firstItem="aQp-qu-gsD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pDy-ge-saC"/>
                             <constraint firstItem="GhC-yb-8kE" firstAttribute="trailing" secondItem="JqJ-1V-dAD" secondAttribute="trailing" id="pHW-A2-5dF"/>
+                            <constraint firstItem="jEn-NE-40K" firstAttribute="leading" secondItem="lba-9g-PUV" secondAttribute="trailing" constant="8" symbolic="YES" id="yBd-Zf-AMr"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="65p-gg-Z4E" appends="YES" id="Bkv-0E-er7"/>
@@ -143,6 +144,7 @@
                         <outlet property="approvalLabel" destination="jEn-NE-40K" id="hcc-Wl-o0C"/>
                         <outlet property="handleLabel" destination="X27-JA-fje" id="6f1-SV-bgm"/>
                         <outlet property="queryTextField" destination="2U7-Ux-P1B" id="DRi-dV-Q3H"/>
+                        <outlet property="resultTypeSegmentedControl" destination="lba-9g-PUV" id="tLx-CX-37i"/>
                         <outlet property="tweetTableView" destination="aQp-qu-gsD" id="Qqz-ic-zTA"/>
                     </connections>
                 </viewController>

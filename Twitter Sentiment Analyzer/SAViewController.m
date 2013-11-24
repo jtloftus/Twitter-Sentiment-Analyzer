@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *queryTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tweetTableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *resultTypeSegmentedControl;
 
 @property (strong, nonatomic) STTwitterAPI *twitter;
 @property (strong, nonatomic) NSDictionary *wordScores;
@@ -105,8 +106,19 @@
         [self.activityIndicator startAnimating];
     }
     
+    // Determine whether we're searching for mixed (popular & random), popular, or random
+    int selectedIndex = (int)[self.resultTypeSegmentedControl selectedSegmentIndex];
+    NSString *resultType;
+    if (selectedIndex == 0) {
+        resultType = @"mixed";
+    } else if (selectedIndex == 1) {
+        resultType = @"popular";
+    } else {
+        resultType = @"random";
+    }
+    
     // Make the API call
-    [self.twitter getSearchTweetsWithQuery:self.queryTextField.text geocode:nil lang:@"en" locale:nil resultType:nil count:@"100" until:nil sinceID:nil maxID:nil includeEntities:nil callback:nil
+    [self.twitter getSearchTweetsWithQuery:self.queryTextField.text geocode:nil lang:@"en" locale:nil resultType:resultType count:@"100" until:nil sinceID:nil maxID:nil includeEntities:nil callback:nil
                         successBlock:^(NSDictionary *Searchmetadata, NSArray *statuses) {
         
 //                            NSLog(@"-- statuses: %@", statuses);
