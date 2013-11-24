@@ -109,9 +109,8 @@
     [self.twitter getSearchTweetsWithQuery:self.queryTextField.text geocode:nil lang:@"en" locale:nil resultType:nil count:@"100" until:nil sinceID:nil maxID:nil includeEntities:nil callback:nil
                         successBlock:^(NSDictionary *Searchmetadata, NSArray *statuses) {
         
-                            //NSLog(@"-- statuses: %@", statuses);
-        
-                            NSLog(@"%@",[NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]]);
+//                            NSLog(@"-- statuses: %@", statuses);
+//                            NSLog(@"%@",[NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]]);
         
                             self.statuses = statuses;
                             
@@ -122,6 +121,7 @@
                             for (NSDictionary *status in self.statuses) {
                                 NSString *text = [status valueForKey:@"text"];
                                 [tweetsText addObject:text];
+//                                NSLog(@"%@", text);
                             }
                             
                             // Determine how many show positive sentiment
@@ -211,13 +211,13 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     self.activeField = textField;
-    NSLog(@"Begin Editing");
+    // NSLog(@"Begin Editing");
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     self.activeField = nil;
-    NSLog(@"Ended Editing");
+    // NSLog(@"Ended Editing");
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

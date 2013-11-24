@@ -21,7 +21,6 @@
 		C19B79B1183578F000DFEE17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19B7993183578F000DFEE17 /* UIKit.framework */; };
 		C19B79B9183578F000DFEE17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C19B79B7183578F000DFEE17 /* InfoPlist.strings */; };
 		C19B79BB183578F000DFEE17 /* Twitter_Sentiment_AnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C19B79BA183578F000DFEE17 /* Twitter_Sentiment_AnalyzerTests.m */; };
-		C19B79C71835810000DFEE17 /* scores_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = C19B79C61835810000DFEE17 /* scores_list.plist */; };
 		C1A19D351835C76200FF526E /* NSString+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D1F1835C76200FF526E /* NSString+STTwitter.m */; };
 		C1A19D361835C76200FF526E /* STHTTPRequest+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D211835C76200FF526E /* STHTTPRequest+STTwitter.m */; };
 		C1A19D371835C76200FF526E /* STTwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D241835C76200FF526E /* STTwitterAPI.m */; };
@@ -32,6 +31,7 @@
 		C1A19D3C1835C76200FF526E /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D301835C76200FF526E /* BAVPlistNode.m */; };
 		C1A19D3D1835C76200FF526E /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D321835C76200FF526E /* JSONSyntaxHighlight.m */; };
 		C1A19D3E1835C76200FF526E /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A19D341835C76200FF526E /* STHTTPRequest.m */; };
+		C1F7DC0E18417869002135EF /* scores_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1F7DC0D18417869002135EF /* scores_list.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		C19B79B6183578F000DFEE17 /* Twitter Sentiment AnalyzerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Twitter Sentiment AnalyzerTests-Info.plist"; sourceTree = "<group>"; };
 		C19B79B8183578F000DFEE17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C19B79BA183578F000DFEE17 /* Twitter_Sentiment_AnalyzerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Twitter_Sentiment_AnalyzerTests.m; sourceTree = "<group>"; };
-		C19B79C61835810000DFEE17 /* scores_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scores_list.plist; sourceTree = "<group>"; };
 		C1A19D1E1835C76200FF526E /* NSString+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+STTwitter.h"; sourceTree = "<group>"; };
 		C1A19D1F1835C76200FF526E /* NSString+STTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+STTwitter.m"; sourceTree = "<group>"; };
 		C1A19D201835C76200FF526E /* STHTTPRequest+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STHTTPRequest+STTwitter.h"; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		C1A19D321835C76200FF526E /* JSONSyntaxHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSyntaxHighlight.m; sourceTree = "<group>"; };
 		C1A19D331835C76200FF526E /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		C1A19D341835C76200FF526E /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
+		C1F7DC0D18417869002135EF /* scores_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scores_list.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 		C19B7996183578F000DFEE17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C19B79C61835810000DFEE17 /* scores_list.plist */,
+				C1F7DC0D18417869002135EF /* scores_list.plist */,
 				C19B7997183578F000DFEE17 /* Twitter Sentiment Analyzer-Info.plist */,
 				C19B7998183578F000DFEE17 /* InfoPlist.strings */,
 				C19B799B183578F000DFEE17 /* main.m */,
@@ -303,7 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C19B79A8183578F000DFEE17 /* Images.xcassets in Resources */,
-				C19B79C71835810000DFEE17 /* scores_list.plist in Resources */,
+				C1F7DC0E18417869002135EF /* scores_list.plist in Resources */,
 				C19B799A183578F000DFEE17 /* InfoPlist.strings in Resources */,
 				C19B79A3183578F000DFEE17 /* Main.storyboard in Resources */,
 			);
